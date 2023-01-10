@@ -91,3 +91,24 @@ function search() {
 const today = new Date();
 let title = document.querySelector("#date");
 title.textContent = today.toDateString();
+
+//save schedule to local storage
+
+let saveBtn = document.getElementById('save');
+
+
+saveBtn.addEventListener('click', function(event) {
+
+  event.preventDefault();
+
+  let textArray = [];
+  textArray = document.querySelectorAll('.description');
+
+  for(var i = 0; i < textArray.length; i++){
+    let appt = document.querySelector('.description').value;
+
+    localStorage.setItem('schedule', JSON.stringify(textArray));
+  }
+
+  
+})
