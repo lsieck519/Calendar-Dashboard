@@ -12,12 +12,15 @@
     
     <section class="hero is-link">
         <div class="hero-body">
-          <p class="title">
-            Link hero
-          </p>
-          <p class="subtitle">
-            Link subtitle
-          </p>
+            <img src="./assets/Shutterstock_750794419.jpg" alt="lady elf" height="100px" width="100px">
+            <div>
+                <p class="title">
+                    Super Awesome Title
+                </p>
+                <p class="subtitle">
+                    The best way to organize your day!
+                </p>
+            </div>
         </div>
       </section>
 
@@ -25,17 +28,37 @@
         <div class="tile is-vertical is-4">
           <div class="tile">
             <div class="tile is-parent is-vertical">
+
               <article class="tile is-child notification is-primary">
-                <p class="title">Vertical...</p>
-                <p class="subtitle">DATE</p>
+                <p class="title" >DATE</p>
+                <p class="subtitle" id="date">DATE</p>
               </article>
-              <article class="tile is-child notification is-warning">
-                <p class="title">...tiles</p>
-                <p class="subtitle">WEATHER</p>
-              </article>
+
+      <!-- WEATHER -->
+              <article id="weather" class="tile is-child notification is-warning">
+                <h2 class="title">Today's Weather</h2>
+              
+                <form>
+                    <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city"/>
+                    <button id="submit" class="button is-small" type="submit">Get Weather Forecast</button>
+                </form>
+                  <!-- today's forecast results -->
+
+                    <div id="forecast-today">
+                    <div class="column current-city-data"  class="columns box content">
+                        <h2 id="icon"></h2>
+                        <h2 id="city-name"></h2>
+                        <h4 id="conditions"></h4>
+                        <h4 id="temp"></h4>
+                        <h4 id="high"></h4>
+                        <h4 id="humidity"></h4>
+                        <h4 id="wind-speed"></h4>
+                    </div>
+                </article>
             </div>
-            
-          </div>
+            </div>
+
+        <!-- MOVIES -->
           <div class="tile is-parent">
             <article class="tile is-child notification is-danger">
               <p class="title">Wide tile</p>
@@ -59,6 +82,9 @@
         </div>
       </div>
 
-  <script src="./assets/script.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/script.js"></script>
+
 </body>
 </html>
