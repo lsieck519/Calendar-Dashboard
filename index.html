@@ -34,13 +34,31 @@
                 <p class="subtitle" id="date">DATE</p>
               </article>
 
-              <article class="tile is-child notification is-warning">
-                <p class="title">...tiles</p>
-                <p class="subtitle">WEATHER</p>
-              </article>
+      <!-- WEATHER -->
+              <article id="weather" class="tile is-child notification is-warning">
+                <h2 class="title">Today's Weather</h2>
+              
+                <form>
+                    <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city"/>
+                    <button id="submit" class="button is-small" type="submit">Get Weather Forecast</button>
+                </form>
+                  <!-- today's forecast results -->
+
+                    <div id="forecast-today">
+                    <div class="column current-city-data"  class="columns box content">
+                        <h2 id="icon"></h2>
+                        <h2 id="city-name"></h2>
+                        <h4 id="conditions"></h4>
+                        <h4 id="temp"></h4>
+                        <h4 id="high"></h4>
+                        <h4 id="humidity"></h4>
+                        <h4 id="wind-speed"></h4>
+                    </div>
+                </article>
             </div>
-            
-          </div>
+            </div>
+
+        <!-- MOVIES -->
           <div class="tile is-parent">
             <article class="tile is-child notification is-danger">
               <p class="title">Wide tile</p>
@@ -64,7 +82,8 @@
         </div>
       </div>
 
-      <script src="./assets/script.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/script.js"></script>
 
 </body>
 </html>
