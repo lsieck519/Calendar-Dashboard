@@ -6,3 +6,6 @@ body {
     margin-bottom: 20px;
 }
 
+.hero-body {
+    display: flex;
+}

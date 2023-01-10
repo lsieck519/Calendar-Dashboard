@@ -60,3 +60,8 @@ function search() {
     $("#wind-speed").text("Wind Speed: " + cityWind + " mph");
     })}
    //END OF WEATHER RELATED JS
+
+// Display todays date
+const today = new Date();
+let title = document.querySelector("#date");
+title.textContent = today.toDateString();
