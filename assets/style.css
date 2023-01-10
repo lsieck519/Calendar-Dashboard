@@ -9,3 +9,18 @@ body {
 .hero-body {
     display: flex;
 }
+
+textarea {
+    height: 50px;
+    width: auto;
+}
+
+.save {
+    display: flex;
+    justify-content: center;
+}
+
+/* button {
+    display: flex;
+    justify-content: center;
+} */
