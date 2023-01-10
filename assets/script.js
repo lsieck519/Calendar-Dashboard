@@ -55,7 +55,7 @@ const getCity = () => {city = $("#city-input").val();
   else if (!city) {alert("Unable to locate forecast. Please enter a valid city name.");}}
 
 // event handler for search city button
-$("#submit").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("");listCities();});
+$("#submit").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("");});
 
 function search() {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
