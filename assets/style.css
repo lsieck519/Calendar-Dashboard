@@ -1,11 +1,17 @@
 body {
     margin: 15px;
-}
-
-.hero {
+ }
+  
+ .hero {
     margin-bottom: 20px;
-}
-
-.hero-body {
+ }
+  
+ .hero-body {
     display: flex;
-}
+ }
+  
+ textarea {
+    height: 50px;
+    width: auto;
+ }
+ 
