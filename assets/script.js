@@ -104,11 +104,33 @@ saveBtn.addEventListener('click', function(event) {
   let textArray = [];
   textArray = document.querySelectorAll('.description');
 
+  let newArray = [];
+
   for(var i = 0; i < textArray.length; i++){
-    let appt = document.querySelector('.description').value;
-
-    localStorage.setItem('schedule', JSON.stringify(textArray));
-  }
-
+    newArray.push(textArray[i].value);
+    }
+    
+localStorage.setItem('schedule', JSON.stringify(newArray));
   
 })
+
+function getSchedule() {
+ 
+  let textArray = [];
+  textArray = document.querySelectorAll('.description');
+
+  let schedule = JSON.parse(localStorage.getItem('schedule'));
+
+  if(!schedule){
+    return;
+  }
+
+  for(var i = 0; i <textArray.length; i++) {
+    textArray[i].value = schedule[i];
+  }
+  
+  
+  
+}
+
+getSchedule();
