@@ -8,6 +8,7 @@ body {
   
  .hero-body {
     display: flex;
+    padding: 0px;
  }
   
  textarea {
