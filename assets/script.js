@@ -1,25 +1,31 @@
 
 let apiKey = `bce14d8aab9e4feb23181748e66debf1`
 let url = `https://api.themoviedb.org/3/trending/movie/week?api_key=bce14d8aab9e4feb23181748e66debf1`
-
+let movieArray = [ ]
 
 function trendingMoives(){
-   
+  let movieArray = []
+  //  for (var i = 0; i<20; i++) {
     fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=bce14d8aab9e4feb23181748e66debf1`)
         .then(function (response) {
             return response.json()
         })
         .then(function (data) {
             console.log(data);
-            // place the for loop through here 
-            let firstMovie = data.results[0].original_title
-            console.log(firstMovie)
+            data = data.results
+            let allMovies = [ ]
+            for (var i = 0; i < data.length; i ++){
+              let movieData = {}
+              movieData.title = data[i].original_title
+              movieData.poster = "https://image.tmdb.org/t/p/w500" + data[i].poster_path 
+              allMovies.push(movieData)
+            }
+            console.log(allMovies)
             return data
-        })
+         })
 };
 
 trendingMoives();
-
 
 
 
