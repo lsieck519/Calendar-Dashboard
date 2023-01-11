@@ -70,6 +70,28 @@
              <p class="subtitle">MOVIES</p>
              <div class="content">
                <!-- Content -->
+               <button class="js-modal-trigger" data-target="modal-js-example">
+                Random Trending Movie
+               </button>
+
+               <div id="modal-js-example" class="modal">
+                <div class="modal-background"></div>
+              
+                <div class="modal-content">
+                  <div class="box">
+                    <article class="has-text-centered">
+                      <p>Try this movie:</p>
+                      <!-- Your content -->
+                      <img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="">
+                      <h1>Movie Title</h1>
+                      <p>Overview</p>
+                    </article>
+                  </div>
+                </div>
+              
+                <button class="modal-close is-large" aria-label="close"></button>
+              </div>              
+
              </div>
            </article>
          </div>
@@ -77,8 +99,9 @@
        <div class="tile is-parent">
          <article class="tile is-child notification is-success">
            <div class="content">
-             <p class="title">Schedule</p>
- 
+            <div class="has-text-centered">
+              <p class="title">Schedule</p>
+            </div>
              <div id="hour-6" class="row time-block present">
                <div class="col-2 col-md-1 hour text-center py-3">6AM</div>
                <textarea id="text-9" class="col-8 col-md-10 description" rows="3" ></textarea>
