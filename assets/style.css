@@ -24,3 +24,7 @@ body {
  #city-name {
    font-size: 2em;
  }
+
+ .width {
+   width: 640px;
+ }
