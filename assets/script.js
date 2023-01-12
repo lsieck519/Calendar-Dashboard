@@ -29,52 +29,35 @@ function trendingMoives(){
 trendingMoives();
 
 
-
-
 //WEATHER RELATED JS//
 
-// APIkey for openweathermap
 var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
-// global variables
 let city;
-let cities;
+let recentCity;
 
-//load most recently searched city from local storage
-const loadRecentCity = () => {let lastSearch = localStorage.getItem("mostRecent");
-  if (lastSearch) {city = lastSearch;search();} else {city = "New York";search();}}
-  
+const getCity = () => {city = $("#city-input").val();
+  if (city) {saveToLocalStorage(); return city;} 
+  else if (!city) {return;}}
+getCity()
+
+//save city to localstorage
+const saveToLocalStorage = () => {localStorage.setItem("cityInput", city);}
+saveToLocalStorage()
+
+const loadRecentCity = () => {let recentCity = localStorage.getItem("cityInput");
+  if (recentCity) {city = $("#city-input").val()} else if (!recentCity) {return}}
 loadRecentCity()
   
-// load recently searched cities from local storage
-const loadRecentCities = () => {let recentCities = JSON.parse(localStorage.getItem("cities"));
-  if (recentCities) {cities = recentCities;} else {cities = [];}}
-  
-loadRecentCities()
-  
-// save searched cities to local storage
-const saveToLocalStorage = () => {localStorage.setItem("mostRecent", city); 
-  cities.push(city); localStorage.setItem("cities", JSON.stringify(cities));}
-  
-// retrieve user input for city name
-const getCity = () => {city = $("#city-input").val();
-  if (city && cities.includes(city) === false) {saveToLocalStorage();return city;} 
-  else if (!city) {alert("Unable to locate forecast. Please enter a valid city name.");}}
-
-// event handler for search city button
-$("#submit").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("");});
+$("#search").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("Search for another city");});
 
 function search() {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
-    let coordinates = [];
     
     $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-   
-    coordinates.push(response.coord.lat);
-    coordinates.push(response.coord.lon);
 
     let cityName = response.name;
     let conditions = response.weather[0].description.toUpperCase();
@@ -92,7 +75,11 @@ function search() {
     $("#humidity").text("Humidity: " + humidity + "%");
     $("#wind-speed").text("Wind Speed: " + cityWind + " mph");
     })}
+
    //END OF WEATHER RELATED JS
+
+
+
 
 // Display todays date
 const today = new Date();
