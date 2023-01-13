@@ -3,7 +3,7 @@ let apiKey = `bce14d8aab9e4feb23181748e66debf1`
 let url = `https://api.themoviedb.org/3/trending/movie/week?api_key=bce14d8aab9e4feb23181748e66debf1`
 let movieArray = [ ]
 
-function trendingMoives(){
+function trendingMovies(){
   let movieArray = []
   //  for (var i = 0; i<20; i++) {
     fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=bce14d8aab9e4feb23181748e66debf1`)
@@ -40,7 +40,7 @@ function trendingMoives(){
         })
 };
 
-trendingMoives();
+// trendingMovies();
 
 // function getRandomMovie(arr) {
 //     const movieIndex = Math.floor(Math.random() * allMovies.length)
@@ -191,3 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+let randomMov = document.getElementById('randomMov')
+randomMov.addEventListener('click', trendingMovies)
