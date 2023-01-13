@@ -56,30 +56,25 @@ trendingMoives();
 var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
 let city;
-let recentCity;
 
 const getCity = () => {city = $("#city-input").val();
-  if (city) {saveToLocalStorage(); return city;} 
-  else if (!city) {return;}}
+  if (city) {saveToLocalStorage();} 
+  else {return}}
 getCity()
 
-//save city to localstorage
-const saveToLocalStorage = () => {localStorage.setItem("cityInput", city);}
-saveToLocalStorage()
+const saveToLocalStorage = () => {localStorage.setItem("lastSearch", city);}
 
-const loadRecentCity = () => {let recentCity = localStorage.getItem("cityInput");
-  if (recentCity) {city = $("#city-input").val()} else if (!recentCity) {return}}
+const loadRecentCity = () => {const storedCity = localStorage.getItem("lastSearch");
+    if ("lastSearch"){city = storedCity; search()} 
+    else; {return}}
 loadRecentCity()
   
-$("#search").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("Search for another city");});
+$("#search").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("");});
 
 function search() {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
     
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    }).then(function (response) {
+    $.ajax({url: queryURL, method: "GET",}).then(function (response){
 
     let cityName = response.name;
     let conditions = response.weather[0].description.toUpperCase();
