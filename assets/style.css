@@ -28,3 +28,7 @@ body {
  .width {
    width: 640px;
  }
+
+ #search {
+   margin-top: 7px;
+ }
