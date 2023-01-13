@@ -22,11 +22,33 @@ function trendingMoives(){
               allMovies.push(movieData)
             }
             console.log(allMovies)
-            return data
+            return allMovies
          })
+        .then (function(allMovies){
+            const movieIndex = Math.floor(Math.random() * allMovies.length)
+            const item = allMovies[movieIndex]
+            console.log(item)
+            return item;
+        })
+        .then (function(item){
+            let randomTitle = document.getElementById("movie-title")
+            randomTitle.textContent = item.title
+            let randomOverview = document.getElementById("overview")
+            randomOverview.textContent = item.overview
+            let randomPoster = document.getElementById("poster")
+            randomPoster.setAttribute("src", item.poster)
+        })
 };
 
 trendingMoives();
+
+// function getRandomMovie(arr) {
+//     const movieIndex = Math.floor(Math.random() * allMovies.length)
+//     const item = arr[movieIndex]
+//     return item;
+// }
+// const result = getRandomMovie(allMovies)
+//               console.log(result)
 
 
 //WEATHER RELATED JS//
