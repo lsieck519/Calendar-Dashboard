@@ -4,6 +4,7 @@ body {
   
  .hero {
     margin-bottom: 20px;
+    border-radius: 5px;
  }
   
  .hero-body {
@@ -31,4 +32,8 @@ body {
 
  #search {
    margin-top: 7px;
+ }
+
+ .hero{
+  padding: 1rem
  }
