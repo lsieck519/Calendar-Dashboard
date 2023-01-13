@@ -44,8 +44,10 @@
                <h2 class="title">Today's Weather</h2>
             
                <form>
+                 <div class="has-text-centered">   
                    <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city"/>
-                   <button id="search" class="button is-small" type="submit">Get Weather Forecast</button>
+                   <button id="search" class="button" type="submit">Get Weather Forecast</button>
+                 </div>
                </form>
                  <!-- today's forecast results -->
  
@@ -70,9 +72,12 @@
              <p class="subtitle">MOVIES</p>
              <div class="content">
                <!-- Content -->
-               <button class="js-modal-trigger" data-target="modal-js-example">
-                Random Trending Movie
-               </button>
+               
+               <div class="has-text-centered">
+                  <button class="button js-modal-trigger" data-target="modal-js-example">
+                    Random Trending Movie
+                  </button>
+               </div>
 
                <div id="modal-js-example" class="modal">
                 <div class="modal-background"></div>
