@@ -1,4 +1,6 @@
 
+//RANDOM MOVIE GENERATOR
+
 let apiKey = `bce14d8aab9e4feb23181748e66debf1`
 let url = `https://api.themoviedb.org/3/trending/movie/week?api_key=bce14d8aab9e4feb23181748e66debf1`
 let movieArray = [ ]
@@ -40,16 +42,7 @@ function trendingMovies(){
         })
 };
 
-// trendingMovies();
-
-// function getRandomMovie(arr) {
-//     const movieIndex = Math.floor(Math.random() * allMovies.length)
-//     const item = arr[movieIndex]
-//     return item;
-// }
-// const result = getRandomMovie(allMovies)
-//               console.log(result)
-
+//END OF RANDOM MOVIE GENERATOR
 
 //WEATHER RELATED JS//
 
@@ -57,52 +50,107 @@ var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
 let city;
 
-const getCity = () => {city = $("#city-input").val();
-  if (city) {saveToLocalStorage();} 
-  else {return}}
+function getCity() {
+  city = $("#city-input").val();
+  if (city) {saveToLocalStorage();
+  } else {return}
+}
 getCity()
 
-const saveToLocalStorage = () => {localStorage.setItem("lastSearch", city);}
+function saveToLocalStorage() {
+  localStorage.setItem("lastSearch", city);
+}
 
-const loadRecentCity = () => {const storedCity = localStorage.getItem("lastSearch");
-    if ("lastSearch"){city = storedCity; search()} 
-    else; {return}}
+function loadRecentCity() {
+  const storedCity = localStorage.getItem("lastSearch");
+    if ("lastSearch"){
+      city = storedCity; search()
+    } else; {return}
+  }
 loadRecentCity()
   
-$("#search").on("click",(x) => {x.preventDefault();getCity();search();$("#city-input").val("");});
+
+$("#search").on("click",(x) => {
+  x.preventDefault();
+  getCity();
+  search();
+  $("#city-input").val("Search for another city");
+})
+;
+
+let conditions;
+let temperature;
+let tempMax;
+let tempMin;
+let icon;
+let humidity; 
+let cityWind; 
+let cityName;
 
 function search() {
-    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
+  // API Documentation https://openweathermap.org/current
+    let weatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
     
-    $.ajax({url: queryURL, method: "GET",}).then(function (response){
-
-    let cityName = response.name;
-    let conditions = response.weather[0].description.toUpperCase();
-    let temperature = response.main.temp;
-    let icon = response.weather[0].icon;
-    let maxTemp = response.main.temp_max;
-    let humidity = response.main.humidity;
-    let cityWind = response.wind.speed;
+    fetch(weatherAPI)
     
-    $("#icon").html(`<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`);
-    $("#city-name").html(cityName);
-    $("#conditions").text("Current Conditions: " + conditions);
-    $("#temp").text("Current Temp: " + temperature.toFixed(1) + " °F");
-    $("#high").text("Expected High: " + maxTemp.toFixed(1) + " °F");
-    $("#humidity").text("Humidity: " + humidity + "%");
-    $("#wind-speed").text("Wind Speed: " + cityWind + " mph");
-    })}
+    .then(function (response){
+      return response.json() 
+    })
+    .then(function (data) {
+      console.log(data);
 
-   //END OF WEATHER RELATED JS
+      icon = data.weather[0].icon
+      console.log(icon)
+      $("#icon").html(`<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`);
+
+      cityName = data.name
+      console.log(cityName)
+      let name = document.querySelector('#city-name');
+      name.textContent = "Today's Weather in " + cityName + ":" 
+    
+      conditions = data.weather[0].description.toUpperCase();
+      console.log(conditions)
+      let CC = document.querySelector('#conditions');
+      CC.textContent = conditions
+
+      temperature = data.main.temp.toFixed(1);
+      console.log(temperature)
+      let temp = document.querySelector("#temperature")
+      temp.textContent = "Temperature: " + temperature + " °F"
+
+      tempMax = data.main.temp_max.toFixed(1);
+      console.log(tempMax)
+      let max = document.querySelector("#tempMax")
+      max.textContent = "High: " + tempMax + " °F"
+
+      tempMin = data.main.temp_min.toFixed(1);
+      console.log(tempMin)
+      let min = document.querySelector("#tempMin")
+      min.textContent = "Low: " + tempMin + " °F"
+
+      humidity = data.main.humidity;
+      console.log(humidity)
+      let hum = document.querySelector("#humidity")
+      hum.textContent = "Humidity: " + humidity + "%"
+
+      cityWind = data.wind.speed;
+      console.log(cityWind)
+      let wind = document.querySelector("#wind")
+      wind.textContent = "Wind Speed: " + cityWind + " MPH"
+   })     
+
+  }
+    
+//END OF WEATHER RELATED JS
 
 
-
-
-// Display todays date
+// TODAY'S DATE
 const today = new Date();
 let title = document.querySelector("#date");
 title.textContent = today.toDateString();
 
+
+//SCHEDULE WITH SAVE BUTTON
 //save schedule to local storage
 
 let saveBtn = document.getElementById('save');
@@ -146,7 +194,7 @@ function getSchedule() {
 
 getSchedule();
 
-//modal code for bulma
+//BULMA MODAL CODE FOR MOVIE GENERATOR
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {

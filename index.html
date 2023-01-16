@@ -35,8 +35,9 @@
  
      <!-- WEATHER -->
              <article id="weather" class="tile is-child notification is-warning">
-               <h2 class="title">Today's Weather</h2>
-            
+              <div class="has-text-centered">
+               <h2 class="title">Weather</h2>
+              </div>
                <form>
                  <div class="has-text-centered">   
                    <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city"/>
@@ -49,11 +50,13 @@
                    <div class="column current-city-data"  class="columns box content">
                        <h2 id="icon"></h2>
                        <h2 id="city-name"></h2>
+                       <br>
                        <h4 id="conditions"></h4>
-                       <h4 id="temp"></h4>
-                       <h4 id="high"></h4>
+                       <h4 id="temperature"></h4>
+                       <h4 id="tempMax"></h4>
+                       <h4 id="tempMin"></h4>
                        <h4 id="humidity"></h4>
-                       <h4 id="wind-speed"></h4>
+                       <h4 id="wind"></h4>
                    </div>
                </article>
            </div>
