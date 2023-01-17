@@ -37,3 +37,34 @@ body {
  .hero{
   padding: 1rem
  }
+
+ #weather {
+  background-color: rgb(161, 216, 187);
+ }
+
+ #movies {
+  background-color: rgb(199, 170, 170);
+  color: rgb(82, 37, 37);
+ }
+
+ #schedule {
+  background-color: rgb(159, 190, 226);
+  color: rgb(20, 20, 50);
+ }
+
+ .title, .subtitle {
+  text-align: center;
+ }
+
+ #date-colors {
+  background-color: rgb(229, 195, 168);
+  color: rgb(91, 70, 23);
+ }
+
+ #date {
+  font-size: 30px;
+ }
+
+ #header-color {
+  background-color: rgb(173, 166, 194);
+ }
