@@ -14,22 +14,22 @@ SO THAT I can plan my day
 ## Acceptance Criteria
 
 - WHEN I visit the Belle website
-    -- THEN I am presented with a user interface including the data, a weather section, hourly task list, and random movie picker
+    - THEN I am presented with a user interface including the data, a weather section, hourly task list, and random movie picker
 
 - WHEN I load the page
-    -- THEN I am presented with the present date
+    - THEN I am presented with the present date
 
 - WHEN I enter a city in the search box of the weather section
-    -- THEN I am presented with the current weather conditions, current temperature, expected high temperature, humidity, and wind speed
+    - THEN I am presented with the current weather conditions, current temperature, expected high temperature, humidity, and wind speed
 
 - WHEN I add tasks to the hourly task section
-    -- THEN I have the option to save all tasks using the save button
+    - THEN I have the option to save all tasks using the save button
 
 - WHEN I click on the "Random Trending Movie" button in the Movie section
-    -- THEN I am presented with a modal displaying a movie title and image 
+    - THEN I am presented with a modal displaying a movie title and image 
 
 - WHEN I refresh the page
-    -- THEN my previous actions are still there, including my weather search and saved tasks 
+    - THEN my previous actions are still there, including my weather search and saved tasks 
 
 ## Preview
 
