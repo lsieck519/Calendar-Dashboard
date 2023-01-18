@@ -38,7 +38,7 @@ SO THAT I can plan my day
 
 ## Link
 
-[link to deployed app goes here]
+https://lsieck519.github.io/Calendar-Dashboard/
 
 ## Credit
 
